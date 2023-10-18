@@ -1,12 +1,13 @@
-import { AxiosResponse } from 'axios';
+import { AxiosResponse } from "axios";
 
-import axiosInstance from '../../base.api';
-import { LoginRequest } from './requests/login-request';
-import { LoginResponse } from './responses/login.response';
+import axiosInstance from "../../base.api";
+import { LoginRequest } from "./requests/login-request";
+import { LoginResponse } from "./responses/login.response";
+import AuthResponse from "./responses/auth.response";
 
 const loginApi = async (requestBody: LoginRequest): Promise<LoginResponse> => {
   return axiosInstance
-    .post('/login', requestBody)
+    .post("/login", requestBody)
     .then((response: AxiosResponse<LoginResponse>) => {
       return response.data;
     })
@@ -15,4 +16,15 @@ const loginApi = async (requestBody: LoginRequest): Promise<LoginResponse> => {
     });
 };
 
-export { loginApi };
+const getAuthApi = async (): Promise<AuthResponse> => {
+  return axiosInstance
+    .get("/auth", {})
+    .then((response: AxiosResponse<AuthResponse>) => {
+      return response.data;
+    })
+    .catch((error) => {
+      throw error;
+    });
+};
+
+export default { loginApi, getAuthApi };

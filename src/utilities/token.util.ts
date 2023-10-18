@@ -1,7 +1,7 @@
 /**
  * Access token key
  */
-const ACCESS_TOKEN_KEY: string = 'access_token';
+const ACCESS_TOKEN_KEY: string = "X-API-Key";
 
 /**
  * Get access token

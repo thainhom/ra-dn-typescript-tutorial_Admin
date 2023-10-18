@@ -1,7 +1,7 @@
 function DashboardPage() {
   return (
     <>
-      <div>Dashboard</div>
+      <div>Hello Thai Nhom</div>
     </>
   );
 }
