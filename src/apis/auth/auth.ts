@@ -2,10 +2,6 @@ import api from "./../base.api";
 import AuthResponse from "./auth/responses/auth.response";
 
 interface LoginResponse {
-  // Định nghĩa cấu trúc của dữ liệu phản hồi cho hàm login
-  // Bạn có thể điều chỉnh interface này dựa trên cấu trúc phản hồi thực tế của bạn
-  // Ví dụ, bạn có thể có các trường như token, user, v.v.
-  // Ở đây, tôi giả định rằng phản hồi có một trường 'data' kiểu bất kỳ
   username: string;
   password: string;
   type: any;
