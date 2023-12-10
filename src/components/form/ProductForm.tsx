@@ -32,7 +32,7 @@ const ProductsForm: React.FC<ProductsFormProps> = ({
     description: "",
     image: null,
   });
-  const [formData, setFormData] = useState<FormData>(new FormData());
+  // const [formData, setFormData] = useState<FormData>(new FormData());
   const [errors, setErrors] = useState<Map<string, string>>(new Map());
 
   useEffect(() => {
@@ -92,13 +92,13 @@ const ProductsForm: React.FC<ProductsFormProps> = ({
           ...product,
           [name]: (event.target as HTMLInputElement).files![0],
         });
-        formData.append("image", value);
+        // formData.append("image", value);
       } else {
         setProduct({
           ...product,
           [name]: null,
         });
-        formData.delete("image");
+        // formData.delete("image");
       }
     } else {
       setProduct({
@@ -111,7 +111,7 @@ const ProductsForm: React.FC<ProductsFormProps> = ({
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     console.log("product", product);
-
+    const formData = new FormData();
     const validationErrors = validate();
     if (validationErrors.size === 0) {
       formData.append("sku", product!.sku);
@@ -119,7 +119,9 @@ const ProductsForm: React.FC<ProductsFormProps> = ({
       formData.append("category", product!.category);
       formData.append("unit_price", product!.unit_price.toString());
       formData.append("description", product!.description);
-
+      if (product.image) {
+        formData.append("image", product.image);
+      }
       console.log("formData", formData);
       onSubmit(formData);
     } else {
@@ -285,3 +287,6 @@ const ProductsForm: React.FC<ProductsFormProps> = ({
 };
 
 export default ProductsForm;
+function append(arg0: string, image: Blob) {
+  throw new Error("Function not implemented.");
+}

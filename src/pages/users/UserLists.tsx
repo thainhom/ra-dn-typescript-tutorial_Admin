@@ -9,7 +9,7 @@ import AdminPaginationComponent, {
 import userApi from "../../apis/user.api";
 
 interface User {
-  user_id: number;
+  id: number;
   username: string;
   email: string;
   first_name: string | null;
@@ -93,7 +93,7 @@ const UserList: React.FC = () => {
 
   const handleBulkDelete = () => {
     const usernames = users
-      .filter((user) => selectedUserIds.includes(user.user_id))
+      .filter((user) => selectedUserIds.includes(user.id))
       .map((user) => user.username);
 
     if (
@@ -141,7 +141,7 @@ const UserList: React.FC = () => {
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
     if (event.target.checked) {
-      const userIds = users.map((user) => user.user_id);
+      const userIds = users.map((user) => user.id);
       setSelectedUserIds(userIds);
     } else {
       setSelectedUserIds([]);
@@ -210,10 +210,10 @@ const UserList: React.FC = () => {
                   <Form.Check
                     type="checkbox"
                     name="user_id"
-                    id={"user_id-" + user.user_id}
-                    value={user.user_id}
+                    id={"user_id-" + user.id}
+                    value={user.id}
                     onChange={changeUserIdCheckbox}
-                    checked={selectedUserIds.includes(user.user_id)}
+                    checked={selectedUserIds.includes(user.id)}
                   />
                 </td>
                 <td>{user.username}</td>
@@ -226,14 +226,14 @@ const UserList: React.FC = () => {
                   <Button
                     variant="warning"
                     className="m-1"
-                    onClick={() => handleEdit(user.user_id)}
+                    onClick={() => handleEdit(user.id)}
                   >
                     Sửa
                   </Button>
                   <Button
                     variant="danger"
                     className="m-1"
-                    onClick={() => handleDelete(user.user_id, user.username)}
+                    onClick={() => handleDelete(user.id, user.username)}
                   >
                     Xóa
                   </Button>

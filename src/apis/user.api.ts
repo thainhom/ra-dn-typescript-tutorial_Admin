@@ -52,12 +52,12 @@ const getUserByUserId = async (userId: number): Promise<User> => {
 };
 
 const updateUser = async (
-  userId?: string,
+  id?: string,
   requestBody?: FormData
 ): Promise<User> => {
   try {
     const response: AxiosResponse<User> = await api.putForm(
-      `/users/${userId}`,
+      `/users/${id}`,
       requestBody
     );
     return response.data;
@@ -67,9 +67,9 @@ const updateUser = async (
   }
 };
 
-const deleteUser = async (userId: number): Promise<void> => {
+const deleteUser = async (id: number): Promise<void> => {
   try {
-    await api.delete(`/users/${userId}`);
+    await api.delete(`/users/${id}`);
   } catch (error) {
     console.error("API Error", error);
     throw error;

@@ -11,16 +11,18 @@ function Header() {
 
   const handleLogout = (e: React.MouseEvent) => {
     e.preventDefault();
+    window.localStorage.removeItem("Bearer");
+    navigate("/login");
+    // authApi
+    //   .logout()
+    //   .then((response) => {
+    //     dispatch(logoutAction());
 
-    authApi
-      .logout()
-      .then((response) => {
-        dispatch(logoutAction());
-        navigate("/login");
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+    //     navigate("/login");
+    //   })
+    //   .catch((error) => {
+    //     console.error(error);
+    //   });
   };
 
   return (

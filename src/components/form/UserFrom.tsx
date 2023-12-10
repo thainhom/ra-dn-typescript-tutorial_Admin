@@ -9,7 +9,7 @@ interface User {
   first_name: string | null;
   last_name: string | null;
   password: string;
-  role: number;
+  role: number | string;
   avatar: File | null;
 }
 
@@ -115,9 +115,9 @@ function UserForm({ userId, onSubmit, onCancel }: UserFormProps) {
       if (user) {
         formData.append("username", user.username);
         formData.append("email", user.email);
-        formData.append("first_name", user.first_name || "");
-        formData.append("last_name", user.last_name || "");
-        formData.append("role", user.role.toString());
+        formData.append("firstName", user.first_name || "");
+        formData.append("lastName", user.last_name || "");
+        formData.append("role", String(user.role));
 
         if (user.avatar) {
           formData.append("avatar", user.avatar);

@@ -139,6 +139,122 @@ function OrderForm({ orderId, onSubmit, onCancel }: OrderFormProps) {
           </Form.Group>
 
           {/* ... (các phần còn lại của form) */}
+          <Form.Group className="mb-3 ">
+            <Form.Label>Tổng giá đơn hàng </Form.Label>
+            <Form.Control
+              type="text"
+              name="total_price"
+              value={order.total_price}
+              onChange={handleChange}
+              disabled={isEdit}
+              isInvalid={!!errors.get("total_price")}
+            />
+            <Form.Text className="text-danger">
+              {errors.get("total_price")}
+            </Form.Text>
+          </Form.Group>
+          <Form.Group className="mb-3 ">
+            <Form.Label>Tên người đặt </Form.Label>
+            <Form.Control
+              type="text"
+              name="username"
+              value={order.username}
+              onChange={handleChange}
+              disabled={isEdit}
+              isInvalid={!!errors.get("username")}
+            />
+            <Form.Text className="text-danger">
+              {errors.get("username")}
+            </Form.Text>
+          </Form.Group>
+
+          <Form.Group className="mb-3 ">
+            <Form.Label className="mr-5">Trạng thái đơn hàng </Form.Label>
+            <div className="px-3">
+              <Form.Check
+                inline
+                type="radio"
+                name="status"
+                label="Đơn hàng mới"
+                id="status-1"
+                value={1}
+                checked={order.status === 1}
+                onChange={handleChange}
+              />
+              <Form.Check
+                inline
+                type="radio"
+                name="status"
+                label="Đã xác nhận"
+                id="status-2"
+                value={2}
+                checked={order.status === 2}
+                onChange={handleChange}
+              />
+              <Form.Check
+                inline
+                type="radio"
+                name="status"
+                label="Đang giao hàng"
+                id="status-3"
+                value={3}
+                checked={order.status === 3}
+                onChange={handleChange}
+              />
+              <Form.Check
+                inline
+                type="radio"
+                name="status"
+                label="Đã giao hàng"
+                id="status-4"
+                value={4}
+                checked={order.status === 4}
+                onChange={handleChange}
+              />
+              <Form.Check
+                inline
+                type="radio"
+                name="status"
+                label="Đã thanh toán"
+                id="status-5"
+                value={5}
+                checked={order.status === 5}
+                onChange={handleChange}
+              />
+              <Form.Check
+                inline
+                type="radio"
+                name="status"
+                label="Hoàn tất"
+                id="status-6"
+                value={6}
+                checked={order.status === 6}
+                onChange={handleChange}
+              />
+              <Form.Check
+                inline
+                type="radio"
+                name="status"
+                label="Bị từ chối"
+                id="status-7"
+                value={7}
+                checked={order.status === 7}
+                onChange={handleChange}
+              />
+            </div>
+          </Form.Group>
+
+          <Form.Group className="mb-3 ">
+            <Form.Label>Ghi chú</Form.Label>
+            <Form.Control
+              type="text"
+              name="note"
+              value={order.note}
+              onChange={handleChange}
+              isInvalid={!!errors.get("note")}
+            />
+            <Form.Text className="text-danger">{errors.get("note")}</Form.Text>
+          </Form.Group>
 
           <Form.Group className="mb-3 float-end ">
             <Button
