@@ -9,7 +9,7 @@ import { useState } from "react";
 interface FormData {
   username: string;
   password: string;
-  type: string;
+  role: string;
 }
 
 function LoginPage() {
@@ -18,7 +18,7 @@ function LoginPage() {
   const [formData, setFormData] = useState<FormData>({
     username: "",
     password: "",
-    type: "admin",
+    role: "admin",
   });
   const [errors, setErrors] = useState(new Map<string, string>());
 
