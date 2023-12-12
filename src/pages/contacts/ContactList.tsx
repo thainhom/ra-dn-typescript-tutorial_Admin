@@ -43,7 +43,7 @@ function ContactList() {
   const fetchContacts = () => {
     contactApi
       .searchContacts({
-        name: keyword,
+        keyword: keyword,
         page: page,
         limit: NUMBER_RECORDS_PER_PAGE,
       })
@@ -151,7 +151,7 @@ function ContactList() {
 
   return (
     <>
-      <h1 >Danh sách Liên hệ</h1>
+      <h1>Danh sách Liên hệ</h1>
       <Form className="row m-1 mb-3" onSubmit={handleSearch}>
         <div className="col-8">
           <Form.Control

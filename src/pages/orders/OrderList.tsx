@@ -54,7 +54,7 @@ function OrderList() {
   const fetchOrders = () => {
     orderApi
       .searchOrders({
-        name: keyword,
+        keyword: keyword,
         page: page,
         limit: NUMBER_RECORDS_PER_PAGE,
       })
@@ -204,7 +204,7 @@ function OrderList() {
               />
             </th>
             <th>Mã đơn hàng</th>
-            <th>Id người đặt</th>
+            <th>Tên người đặt</th>
             <th>Thời gian đặt hàng</th>
             <th>Tổng giá đơn hàng</th>
             <th>Trạng thái đặt hàng</th>
@@ -228,7 +228,7 @@ function OrderList() {
                 />
               </td>
               <td>{order.serial_number}</td>
-              <td>{order.user_id}</td>
+              <td>{order.username}</td>
               <td>{moment(order.order_at).format("YYYY-MM-DD HH:mm")}</td>
               <td>{order.total_price}</td>
               <td>{formatStatus(order.status)}</td>

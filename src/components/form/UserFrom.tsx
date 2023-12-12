@@ -260,7 +260,7 @@ function UserForm({ userId, onSubmit, onCancel }: UserFormProps) {
             <Form.Control
               type="password"
               name="password"
-              value={password}
+              // value={password}
               onChange={handleChange}
               isInvalid={!!errors.get("password")}
             />

@@ -51,7 +51,7 @@ const UserList: React.FC = () => {
   const fetchUsers = () => {
     userApi
       .searchUsers({
-        name: keyword,
+        keyword: keyword,
         page: page,
         limit: NUMBER_RECORDS_PER_PAGE,
       })
